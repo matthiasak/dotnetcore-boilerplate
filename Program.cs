@@ -54,7 +54,7 @@ public partial class Handler {
     protected SessionOptions _session = SessionOptions.Identity;
     protected bool _convertConnectionString = true;
     protected DatabaseOptions _db = DatabaseOptions.InMemory;
-    protected JSOptions _js = JSOption.None;
+    protected JSOptions _js = JSOptions.None;
     protected RestfulOptions _restful = RestfulOptions.CORS;
     protected SwaggerOptions _swagger = SwaggerOptions.UI;
     protected WebsocketOptions _websockets = WebsocketOptions.None;
