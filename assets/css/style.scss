@@ -1,0 +1,41 @@
+@import "../../node_modules/normalize.css/normalize.css";
+@import "../../node_modules/typeplate-starter-kit/dist/css/typeplate.css";
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.grid {
+    font-size: 0;
+    text-align: justify;
+
+    & > * {
+        display: inline-block;
+        font-size: medium;
+    }
+
+    &:after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+@define-mixin grid_r $col, $width {
+        @media (min-width: $(width)px) {
+                .grid-$(col)-$(width) {
+                    & > * {
+                       width: calc(100 / $col)%;
+                }
+            }
+    }
+}
+
+@mixin grid_r 2, 400;
+@mixin grid_r 3, 600;
+@mixin grid_r 4, 800;
+@mixin grid_r 6, 1000;
+
+body {
+    color: red;
+}

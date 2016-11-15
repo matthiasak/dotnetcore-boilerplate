@@ -1,0 +1,23 @@
+<div class="menu">
+    <a href="/" class="logo">My Site</a>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        @if (SignInManager.IsSignedIn(User)) {
+            <li>
+                <form asp-controller="Account" asp-action="Logout">
+                    <button type="submit">logout</button>
+                </form>
+            </li>
+            <li>
+                Hello @UserManager.GetUserName(User)!
+            </li>
+        } else {
+            <li>
+                <a href="/account/login">Register or Sign In</a>
+            </li>
+        }
+    </ul>
+</div>

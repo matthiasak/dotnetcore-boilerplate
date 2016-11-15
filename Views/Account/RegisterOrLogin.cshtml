@@ -1,0 +1,19 @@
+@model UserView
+@{
+    var a = ViewBag.Action ?? "Register";
+}
+
+<form asp-controller="Account" asp-action="@a">
+
+    <div asp-validation-summary="All"></div>
+
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+
+    <label asp-for="Password"></label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+
+    <button type="submit">Submit</button>
+</form>

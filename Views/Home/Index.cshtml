@@ -1,0 +1,63 @@
+
+<div>
+    <h1>Hello @ViewBag.Username from a view</h1>
+    <!--<p>@Model</p>-->
+</div>
+
+@*
+Examples:
+-------------
+@model RegisterViewModel
+
+<form asp-controller="Demo" asp-action="RegisterInput" method="post">
+    Email:  <input asp-for="Email" /> <br />
+    Password: <input asp-for="Password" /><br />
+    <span asp-validation-for="Password"></span>
+    <button type="submit">Register</button>
+</form>
+-----------------
+Address: <input asp-for="Address.AddressLine1" />
+-----------------
+@{
+    var students = ViewBag.students;
+}
+
+<ul>
+    @foreach(var student in students){
+        if(student.IKnowCSharp){
+            <li>@student.name (knows c#)</li>
+        } else {
+            <li>@student.name (<a href="/api/students/@(student.StudentId)/learnyou">learn you some c#</a>)</li>
+        }
+    }
+</ul>
+-----------------
+other helpers: Html.TextBox, Html.TextBoxFor/asp-for, Html.Editor, Html.EditorFor/asp-for, Html.TextAreaFor/asp-for, Html.LabelFor, Html.FormFor, DropDownListFor, ListBoxFor
+
+    @model CountryViewModel
+    <form asp-controller="Home" asp-action="Index" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+        <select asp-for="Country" asp-items="Model.Countries"></select> 
+        <br /><button type="submit">Register</button>
+    </form>
+
+    using enums?
+
+    @model CountryEnumViewModel
+    <form asp-controller="Home" asp-action="IndexEnum" method="post">
+        <select asp-for="EnumCountry" 
+                asp-items="Html.GetEnumSelectList<CountryEnum>()"> >
+        </select> 
+        <br /><button type="submit">Register</button>
+    </form>
+
+We can modify the Views/Shared/EditorTemplates/String.cshtml template:
+```
+@model string
+
+<label asp-for="@Model"></label>
+<input asp-for="@Model" /> <br />
+```
+
+render partial views (other view files) with @Html.Partial("AuthorPartial")
+*@
+
