@@ -11,14 +11,8 @@ const log = (...a) => console.log(...a)
 
 const get = (url) =>
     fetch(url, {credentials: 'same-origin'})
-    .then(r => {
-        if (r.status === 200) return r.json()
-
-        throw 403
-    })
-    .catch(e => {
-        if(e === 403) window.location.hash = "#login"
-    })
+    .then(r => r.json())
+    .catch(e => log(e))
 
 const post = (url, data) => 
     fetch(url, { 
