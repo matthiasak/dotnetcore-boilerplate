@@ -12,6 +12,7 @@
     & > * {
         display: inline-block;
         font-size: medium;
+        width: 100%;
     }
 
     &:after {
@@ -21,13 +22,13 @@
     }
 }
 
-@define-mixin grid_r $col, $width {
+@define-mixin grid_r $col, $width, $margin: 2 {
         @media (min-width: $(width)px) {
-                .grid-$(col)-$(width) {
-                    & > * {
-                       width: calc(100 / $col)%;
-                }
+            .grid-$(col)-$(width) {
+                & > * {
+                    width: calc((100 / $col) - $margin)%;
             }
+        }
     }
 }
 
