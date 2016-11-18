@@ -4,10 +4,11 @@ import fetch from "isomorphic-fetch"
 import React, {Component} from 'react'
 import {render} from 'react-dom'
 import { Router, Route, Link, browserHistory, hashHistory } from 'react-router'
+import "../css/style.scss"
 
 // Utility methods
 // --------------
-const log = (...a) => console.log(...a)
+const log2 = (...a) => console.log(...a)
 
 const get = (url) =>
     fetch(url, {credentials: 'same-origin'})
@@ -34,7 +35,7 @@ const reactApp = () =>
     </Router>,
     document.querySelector('.app'))
 
-reactApp()
+// reactApp()
 
 // Flow types supported (for pseudo type-checking at runtime)
 // function sum(a: number, b: number): number {
